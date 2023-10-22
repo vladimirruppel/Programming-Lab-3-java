@@ -11,5 +11,9 @@ public class Main {
 		player.Play();
 		player.Next();
 		player.PrintInfo();
+
+		AudioCollection ac = new AudioCollection(af1, af2);
+		ac.printStats();
+		ac.searchAndPrintByArtistName("Kanye West");
     }
 }
