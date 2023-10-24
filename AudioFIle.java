@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class AudioFile {
 	private String fileName;
 	private String artistName;
@@ -76,5 +78,15 @@ public class AudioFile {
 
 	public void PrintInfoShort() {
 		System.out.println(artistName + " - " + trackName + ", " + duration + "с, " + releaseYear + " - " + fileName);
+	}
+
+	public static void PrintArray(ArrayList<AudioFile> tracks, boolean numbered) {
+		System.out.println("Список треков: ");
+		for (int i = 0; i < tracks.size(); i++) {
+			AudioFile track = tracks.get(i);
+
+			if (numbered) System.out.print((i + 1) + ". ");
+			track.PrintInfoShort();
+		}
 	}
 }

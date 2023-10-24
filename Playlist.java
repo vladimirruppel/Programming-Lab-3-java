@@ -72,4 +72,11 @@ class Playlist {
 	public void RemoveTrackByIndex(int index) {
 		trackList.remove(index);
 	}
+
+	public static void PrintArray(ArrayList<Playlist> playlists) {
+		System.out.println("Список плейлистов: ");
+		for (Playlist playlist : playlists) {
+			playlist.PrintInfo();
+		}
+	}
 }
