@@ -23,7 +23,7 @@ class AudioCollection {
 		tracks.remove(index);
 	}
 
-	public ArrayList<AudioFile> searchByArtistName(String artistName) {
+	public ArrayList<AudioFile> SearchByArtistName(String artistName) {
 		ArrayList<AudioFile> results = new ArrayList<AudioFile>();
 
 		for (AudioFile track : tracks) {
@@ -34,7 +34,7 @@ class AudioCollection {
 		return results;
 	}
 
-	public ArrayList<AudioFile> searchByReleaseYear(int releaseYear) {
+	public ArrayList<AudioFile> SearchByReleaseYear(int releaseYear) {
 		ArrayList<AudioFile> results = new ArrayList<AudioFile>();
 
 		for (AudioFile track : tracks) {
@@ -45,22 +45,22 @@ class AudioCollection {
 		return results;
 	}
 
-	public void printSearchResults(ArrayList<AudioFile> results) {
+	public void PrintSearchResults(ArrayList<AudioFile> results) {
 		System.out.println("Результаты по запросу: ");
 		for (AudioFile track : results) {
 			track.PrintInfoShort();
 		}
 	}
 
-	public void searchAndPrintByArtistName(String artistName) {
-		printSearchResults(searchByArtistName(artistName));
+	public void SearchAndPrintByArtistName(String artistName) {
+		PrintSearchResults(SearchByArtistName(artistName));
 	}
 
-	public void searchAndPrintByReleaseYear(int releaseYear) {
-		printSearchResults(searchByReleaseYear(releaseYear));
+	public void SearchAndPrintByReleaseYear(int releaseYear) {
+		PrintSearchResults(SearchByReleaseYear(releaseYear));
 	}
 
-	public void printStats() {
+	public void PrintStats() {
 		int tracksCount = tracks.size(); // кол-во треков в массиве
 		if (tracksCount == 0) {
 			System.out.println("Количество треков в коллекции равно 0");
@@ -75,8 +75,8 @@ class AudioCollection {
 		double averageDuration = fullDuration / tracksCount; // средняя длительность
 
 		System.out.println("Статистика коллекции: ");
-		System.out.println("Количество треков в коллекции: " + tracksCount);
-		System.out.println("Длительность всех треков в коллекции: " + fullDuration);
-		System.out.println("Средняя длительность треков в коллекции: " + averageDuration);
+		System.out.println("Количество треков: " + tracksCount);
+		System.out.println("Длительность всех треков: " + fullDuration + "с");
+		System.out.println("Средняя длительность: " + averageDuration + "с");
 	}
 }

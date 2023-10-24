@@ -70,11 +70,11 @@ public class AudioFile {
 		System.out.println("Название файла: " + fileName);
 		System.out.println("Имя артиста: " + artistName);
 		System.out.println("Название трека: " + trackName);
-		System.out.println("Длительность: " + duration);
+		System.out.println("Длительность: " + duration + "с");
 		System.out.println("Год выхода: " + releaseYear);
 	}
 
 	public void PrintInfoShort() {
-		System.out.println(artistName + " - " + trackName + ", " + duration + "s, " + releaseYear + " - " + fileName);
+		System.out.println(artistName + " - " + trackName + ", " + duration + "с, " + releaseYear + " - " + fileName);
 	}
 }

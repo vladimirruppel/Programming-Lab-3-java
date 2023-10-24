@@ -13,7 +13,7 @@ public class Main {
 		player.PrintInfo();
 
 		AudioCollection ac = new AudioCollection(af1, af2);
-		ac.printStats();
-		ac.searchAndPrintByArtistName("Kanye West");
+		ac.PrintStats();
+		ac.SearchAndPrintByArtistName("Kanye West");
     }
 }
