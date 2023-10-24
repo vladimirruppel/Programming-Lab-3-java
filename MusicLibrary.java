@@ -4,6 +4,7 @@ import java.util.Scanner;
 class MusicLibrary {
 	private ArrayList<AudioFile> tracks = new ArrayList<AudioFile>();
 	private ArrayList<Playlist> playlists = new ArrayList<Playlist>();
+	Scanner scanner = new Scanner(System.in);
 
 	// вспомогательная функция
 	private ArrayList<AudioFile> GetTracksFromPlaylists(ArrayList<Playlist> playlists) {
@@ -91,8 +92,6 @@ class MusicLibrary {
 	}
 
 	public AudioFile CreateTrack() {
-		Scanner scanner = new Scanner(System.in);
-
 		System.out.println("Создание трека");
 		System.out.print("Введите наименование файла: ");
 		String fileName = scanner.nextLine();
@@ -114,14 +113,10 @@ class MusicLibrary {
 		AddTrack(track);
 		System.out.println("Трек создан");
 
-		scanner.close();
-
 		return track;
 	}
 
 	public Playlist CreatePlaylist() {
-		Scanner scanner = new Scanner(System.in);
-
 		System.out.print("Введите название плейлиста: ");
 		String playlistName = scanner.nextLine();
 
@@ -149,9 +144,9 @@ class MusicLibrary {
 					do {
 						System.out.print("Выберите номер трека для добавления в плейлист: ");
 						trackNumber = scanner.nextInt();
-					} while (trackNumber < 1 || trackNumber > tracks.size());
+					} while (trackNumber < 1 || trackNumber > this.tracks.size());
 
-					AudioFile chosenTrack = tracks.get(trackNumber - 1);
+					AudioFile chosenTrack = this.tracks.get(trackNumber - 1);
 					tracks.add(chosenTrack);
 				}
 			}
@@ -172,9 +167,7 @@ class MusicLibrary {
 
 		Playlist playlist = new Playlist(playlistName, tracks);
 		playlists.add(playlist);
-		System.out.println("Плейлист создан");
-
-		scanner.close();		
+		System.out.println("Плейлист создан");		
 
 		return playlist;
 	} 
@@ -185,5 +178,9 @@ class MusicLibrary {
 
 	public void PrintPlaylists() {
 		Playlist.PrintArray(playlists);
+	}
+
+	public void CloseScanner() {
+		scanner.close();
 	}
 }
