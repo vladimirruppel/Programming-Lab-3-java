@@ -123,6 +123,8 @@ class MusicLibrary {
 		ArrayList<AudioFile> tracks = new ArrayList<AudioFile>();
 		boolean toContinue = true;
 		do {
+			// TODO: Проверка на существование в массиве одного и того же трека
+
 			System.out.println("Откуда взять трек: ");
 			System.out.println("1. Из библиотеки");
 			System.out.println("2. Создать новый");
@@ -147,7 +149,13 @@ class MusicLibrary {
 					} while (trackNumber < 1 || trackNumber > this.tracks.size());
 
 					AudioFile chosenTrack = this.tracks.get(trackNumber - 1);
-					tracks.add(chosenTrack);
+
+					if (tracks.contains(chosenTrack)) {
+						System.out.println("Выбранный трек уже добавлен в плейлист");
+					}
+					else {
+						tracks.add(chosenTrack);
+					}
 				}
 			}
 			else if (answer == 2) { // создать новый

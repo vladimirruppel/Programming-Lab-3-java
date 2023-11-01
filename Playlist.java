@@ -79,4 +79,8 @@ class Playlist {
 			playlist.PrintInfo();
 		}
 	}
+
+	public boolean Contains(AudioFile track) {
+		return trackList.contains(track);
+	}
 }
